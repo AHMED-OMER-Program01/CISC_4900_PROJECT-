@@ -1,0 +1,5 @@
+
+Setup and tested the working validity of the blank Windows Desktop Application Install Wizard setup, from Visual Studio 2022;
+
+Code runs, and seems to work, fine.
+

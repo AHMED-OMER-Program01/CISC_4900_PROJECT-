@@ -1,0 +1,20 @@
+The details, in barebones form;
+
+	In the presentation, push/present how this is the first time I'm learning to create a wizard-exe, ALONGSIDE the cryptography learning & encryption stuff;
+
+	Have a common encryption method, a Quantum-Resistant one, AND an odd, unknown one ( from like, A White page ( an academic/studious paper, but for tech ) or something )
+	
+	EXPLAIN HOW EACH ONE WORKS WHILE *IN* THE APPLICATION, allowing en, and de, cryption ( duh );
+
+	The main ( in general ) pillars then, for our/my project is thusly;
+		Learning to make a wizard application
+		Learning to encrypt data
+		Learning to incorporate QR algorithms into the application TO encrypt data ( of/for which, we're gonna have to build a code from scratch. Yaaaayyy )
+		Undoing that, in an intuitive manner, for the application ( receive encrypted data, plus encryption key? )
+		THE EDUCATIONAL ASPECT; Have either a blurb, a small visual, or BOTH, explaining each encryption type & it's algorithm, as when they use it
+
+		Yeah?
+
+
+
+	AJ, during the meeting, also explained they posted an announcement that morning; saying there were official walk-in office hours, AND that, we had to email him, saying we went up to meet him. We did so, via our outlook email, that same day!
