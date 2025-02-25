@@ -1,0 +1,128 @@
+------------------------------
+On the tenth of February; both before, and after class, we met up, and agreed to
+meet up a period after class, to have our first more 'formal' meeting;
+rest of the info is available contextually; and I'm 1,000% cool with it;
+just documenting for documenting/proof I even interacted with Mcneill outside of class
+( It's *not* paranoia if they ARE out to get you ( lol ) )
+------------------------------
+
+I sent this Feb 10th, 1:21PM;
+
+"Ahmed Omer; I’ve been outside 128 for a bit; did I mishear you?"
+
+"  Hey prof! Outside 128; I knocked a few times, and it's getting closer to 1:30;
+
+   I apologize, I thought I was gonna meet you here at 1, since you said you had a 20-30 minute meeting? Were you, instead, saying you *only* had 20-30 minutes, before then/such?? Because if so, I'm sorry! I was waiting the time out in the library!!
+
+    If you ARE in the office ( and I dunno, my knocking's just quiet, lol ), I'm out here! And if this email gets to you too late; I'm gonna share my GitHub;
+
+   https://github.com/AHMED-OMER-Program01/
+
+Which… does NOT have the more updated, local version, but hey, it’s a Proof of Concept for the Proof of Concept for the, etc?
+
+   Gah.
+
+   I dunno man, if I did something, I’m sorry. Since we’re not meeting next Wednesday, see you next week?
+
+    Cheers, 
+      -Ahmed
+
+
+Ps; proof I was/am like.
+Here, lmao;
+"
+I then proceeded to upload two pictures, which should be in the same folder as this .txt.
+
+------------------------------
+
+He sent this back/replied same day, 5:26 PM;
+
+"Hi Ahmed,
+
+I'm sorry, you heard me correctly, unfortunately the meeting went over and I must have missed you. I'd be happy to arrange a time on Zoom to meet later this week. In the meantime, I looked at your repository - your informal plan looks good to me, and I'm only curious about which encryption algorithms you're planning to implement.
+
+Matthew McNeil"
+
+------------------------------
+
+I replied today, Feb 11th, 2025(duh), at 10:47AM;
+
+"
+      Absolutely! I'd love to have a zoom meeting; mind, I don't really have that much to share *actionably* right now; just timelogs, ideas, and like, the finished installer. I'll upload those items, and formalize the Github a bit later today, but, for the zoom meeting;
+
+      If you're okay with it being a bit of a shorter one, I'm free;
+            Literally anytime tomorrow
+            Anytime between 11:00AM & 1:30PM Thursday,
+            And anytime after 5:00PM, Friday?
+
+      I apologize if this email-series is unprofessional, I'll be completely honest, I'm sorta-kinda flying by the seat of my pants here! I'm not the best at remote conferences either, so if I'm understanding this right, is it okay if I expect a quick 15-30 min meeting, with me presenting my gameplan and what I've done? Or, is there a more implicational segment to these meetings ( like, am I expected to treat this like how I would present my work to a *boss*, or, are more casual tones expected/okay? )?
+
+      Apologies for the text-wall, and thank you for responding back so quickly! Also, no problem about/with the meeting yesterday! Guide me, professor ( lol )!
+
+      Cheers,
+        -Ahmed
+
+" 
+
+
+---------------------
+In response to my last email; Prof Mcneill sent, on the *11th* ( yesterday, at 5:55PM );
+
+
+"Hi Ahmed,
+
+
+I can meet on Thursday at 1 PM.
+
+
+Everything about the meetings, including how frequent they are, their tone, and what role you would like me to play is up to you. I'm only your "boss" in the sense that the feedback I give to the 4900 coordinators is one component of the grade you will receive in the class, but you don't answer to me and you can take or leave any suggestions I give you.
+
+
+Some students did the project independently and only checked in with me once or twice to make sure things are on the right track, some students used me for initial direction and technical advice as needed, and some students wanted regular formal meetings and regular feedback. So as far as I'm concerned you can come as you are and we'll figure out what works best for you.
+
+
+Matthew McNeill"
+
+---------------------
+
+To which I replied ( today
+
+"
+
+      A 1:00 meeting on Thursday would be great!
+
+      And thank you for the clarification! I now recognize you said something of the same sentiment when I first asked you to be my advisor; sorry for making you repeat it!
+
+      And here, I made a Zoom meeting link for then;
+            [Link was here]
+      Actually, first time I had to make one; hopefully I didn't bork it all up!
+
+      Hope to see you soon, and that you're enjoying the day off ( or, at least, I *hope* today is *also* off for faculty, lol );
+
+      Cheers,
+       -Ahmed"
+
+---------------------
+
+	I'm an idiot.
+	Well; not really; it's not actually my fault; I was dealing with a minor family emergency, but like
+	I'm a fucking idiot, dude.
+	ANYWAY;
+
+	On the 13th of Feb, I sent;
+
+"Hi.
+Personal emergency: it's entirely my fault I missed the meeting ( I even MADE the zoom link )
+But because I wanted SOME form of update this week; I made a ~six minute video explaining VERY briefly the current state of the project, and the littlest tidbits on what's planned
+I apologize for the inconvenience, and if you're mad, or if you consider this an issue that needs to be addressed, I'm fully understanding;
+
+beyond that, if you're willing, I will most likely just, try to drop in your office hours next week, or talk to you outside of class regardless Monday,
+Or try this meeting again on friday.
+
+Here's the video link;
+      https://www.youtube.com/watch?v=JGtxCgxSISM
+
+I apologize again for the state of the supervision-to-student status for this week,
+and I hope you're doing well,
+      -Ahmed
+"
