@@ -1,0 +1,68 @@
+Digital Signatures;
+	ML-DSA ( MODULE-LATTICE-BASED DIGITAL SIGNATURE STANDARD ), also known as CRYSTALS-Dilithium, and now as FIPS-204, is primarily a *Signature checker*. You see, data security has many factors- and while in the file-encryption tabs, we directly encrypt data- signature-checkers exist to make sure that when you pass *around* that data, you know you're sending it to, and accepting data from, the right people. To oversimplify- it's the encryption-segment of securing things like your phone messages, emails, social media messages, or DMs. Digital Signatures act like, well, like signatures- they confirm the data you're dealing with is the real-deal, and that you know correctly where it's coming from, and thusly, safe.
+
+	A large part of what those who make Digital Signatures deal with is attempting to belay a hypothetical 'third party'. Imagine, if you will, you're sending a personal, important message to another, and eagerly awaiting a response. If this was done by say, physical mail- the 'third party' in this case, would be someone intercepting your mail, and either using the letter to fake your 'handwriting', or simply take your name, or other effects, to do all sorts. These actions in turn ranging from impersonation, to simple spying. And while the prevention of spying through 'the letter' is handled by 'writing in a cypher' ( file-content encryption ), making sure any letters are coming from a trusted source, especially from far away, is more tricky.
+
+	The solution found in many Digital Signatures is a form of *password sharing*; I give you a special, unique key that can be used to not only decrypt my messages, but also confirm that only you can use, since it requires one of yours. Similarly, we have another set of keys, so that *you* have a key that you give me, so that I can be the only one to read your messages- because it requires one of *my* keys to work in conjunction, to make it readable at all.
+
+	These pairs of *private* and *public keys* are the backbone of many Digital signatures- we each have a set of keys we 'keep at home', and ones we give out, to others. This way, after the initial trade off of keys, a hypothetical 'third party' can't do much- even if they intercept our 'mail', they can't read, or impersonate using the 'letter'; since they wouldn't have the 'home' key that makes it readable.
+
+	This is important, since if we instead simply shared an generically encrypted file, confident it couldn't be cracked- the hypothetical 'third party' could, and would, just copy a message or two down as they grabbed 'letters', and build, slowly, a method to crack our singular encryption. But in contrast, our dual key-method, while also not perfect, adds another layer of complexity- so that, even if they *do* start cracking our algorithm, it would take magnitudes more time to do so, since they're lacking an *order* of key-complexity, in comparison to a static one, once a 'letter' has been grasped.
+
+ 	Also, as we trade encrypted files, as long as we're ahead and as long as we have a trusted message-connection, we can continuously, although it *is* dangerous, share *newer*, more *complex* keys. Ones, that require previous ones to function correctly- thusly, unless we're unlucky, making it so that a hypothetical 'third party' must break through *every* layer of key to get to our initial message- and hopefully by then, we'd be long gone.
+
+	And this is all to say, this is all not even regarding ML-DSA yet!
+
+
+----------------------------------------------------
+
+
+ML-DSA and Lattices;
+	ML-DSA isn't just a Digital Signatory algorithm; it's a *lattice* Digital Signatory, and it's a *post-quantum* one! 
+
+	Speaking on the Lattice segment first; Lattice based algorithms treat data such as *points within an n-dimensional space*, and of which in said a space, not only the *location*, but the *method traversed* impacts the data 'perceived'. Say upon a basic 2D cartesian grid, you had a 'point' at the simple locale of (-2, 4 ). Assuming you have an individual vector based off of each directional axis you can access ( in this case, only two ), and that your 'movement' is directed by the functional-sum, and/or via another algorithm, calculation of your vectors- what is the quickest way to get to our data point?
+
+	Well- if we were not only limited in vectors to the strict x & y axis intersections, and if there's only one point- often, the answer is obvious- from origin, go 'left', or 'negative' twice, then go 'up', or 'positive', four times.
+
+	But what if we're dealing with a 2d plane with just enough 'blank' spaces, or what if our vectors have a minimum range that *must* be traversed, each and every time we walk upon them? And what if there are multiple datapoints, and not every datapoint is relevant ( padding- we explore this concept a little in the AES tab ); AND to parse the data correctly, and decode correctly, we need to travel a *highly specific path*?
+
+	And what if the datapoints, from our position, could be made invisible? Or, considering this is mathematical- not in actual-space- in more than 2, 3, or 4 'spatial' dimensions? Attempting to find the shortest combination of vectors, much less the correct path besides to such, becomes ridiculous. This gross, but effective in communicating, explanation of lattice-algorithms harkens back to fae forestry- the concept that, without knowing a highly specific 'path', that you're lost, and unlikely to stumble on the correct journey, is the crux of Lattice algorithms. And again- while this is majorly in a gross hyperbole- is the benefit of lattice algorithms- their relatively insane conditions to crack, in comparison to the work it takes to set them up. For those in computer science- the creation of a two-dimensional grid is as simple as a inner and outer nested array. A structure that links appropriate elements in a multi-dimensional manner is as hard as link-listing upon the appropriate series of matrix equations. 
+
+	Or, instead of mapping all those elements in a manner mathematically befitting a mirroring of an actual hypercube, for instance- discrete-size cuts or not- you could always continue stacking arrays!
+
+	And for those NOT in computer science- do not worry- all you need to know is- *lattice* based codes are surprisingly effective for *little* work!
+
+
+----------------------------------------------------
+ 
+ML-DSA proper;
+	Speaking of; the basis of ML-DSA itself is, in comparison, incredibly simple!
+
+	In our application, we're only generating key pairs for the sake of demonstration- however that *is* the basis of the entire work. We first generate a *random-seed* ( in our codebase's example, through SecureRandom() ), and generate two keys through that- our PUBLIC, and our PRIVATE key. these are quickly created through a lattice modification internally- ML-DSA is CRYSTALS-Dilithium, which is, in turn a Schnorr-like signature. What that means is, we use a Random Byte Generator to create a 256-or-other-bit seed, for which our initial 'prover' can use to inherently provide a positive integer, that's less than the order of another for which the Fiat-Shamir heuristic is applied!
+
+	Or, er; since we're being given a *public* key- we want to eliminate the amount of uses of such- since that's dangerous, even if only in a paranoia-sense. So, we, the Fiat-Shamir heuristic is, functionally, a decently- well known method, though not advised, or even truely focused on even in ML-DSA, method of attempting to determine if we should accept a public key based on little-to-no-knowledge if it's reasonable to or not- it's an algorithm, so, it's an interactive 0-proof *attempt* at verification. Here- it's mostly used as an additional modifier to the seed- that same generated seed- for which that positive integer mentioned earlier can be committed to a generator known to a 'prover';
+Such that;;
+
+	Where;
+		verifier knows generator g, and the value of y, where y = g^x, for some x, that the verifier also knows. The goal is for 'prover' to prove they know this too, and also test 'verifier'.
+
+		If 'prover' is who they say they are, they first provide pos-int r, such that such is less-than-the-order of generator g, and sends such to verifier in the form of g^r.
+
+		Verifier, in response, sends a new, another, random pos-int c, such that  c is *also* less than the order of g, back.
+
+		and in response, seeing as both are bounded less than g- implying some knowledge, our 'prover' returns an s, such that s = r - c*x, reduced in modulo to the order of g, so that our verifier can check if g^s * y^c = g^r
+
+	And that's that!
+
+	That's ML-DSA!
+
+	Minus all the specific lattice and details- ripped ( not actually, but meh ) straight from the governmental standardized account of such, itself! I mean- we didn't talk about how ML-DSA's major tweaks to the formula based above- but the general gist is the exact same- what wasn't mentioned was things like; how ML-DSA has a 512-bit standard to private-seeds & messages, instead of DILITHIUM's 384- or greasy-stuff, like how instead of using matrices, ML-DSA instead uses multiple vectors, differentiated by specific polynomial-rings, but;;
+
+	Hopefully, ALL this is enough to explain what you need to know about ML-DSA!
+
+----------------------------------------------------
+
+NOTES;
+	As stated earlier, in this application, we only provide the public & private keys. Within the code, however, we DO provide verification of said keys in-as through signature-verification; check my code under Algol_01_Test.cs for a quick example set- it's fun to learn around!
+
+----------------------------------------------------

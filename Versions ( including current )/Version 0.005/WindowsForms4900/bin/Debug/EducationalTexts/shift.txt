@@ -1,0 +1,33 @@
+SHIFT;
+	Also known as the Cesear-Cipher, a SHIFT is one of the simplest methods of encoding, and encryption. In SHIFT-Cipher, much like most ciphers on this level, you have a MESSAGE you want to encode/encrypt, and a KEY- in this case, a KEY that can both en, and de-crypt, your MESSAGE. Specifically, in your MESSAGE, you assign a number to every letter in it- in this example, let's have the message "APPLE", have our KEY be 3, and limit our letter's 'scale' to the simple alphabet- where "A" is zero, and "B" is one, until "Z', such that;
+
+	A  B  C  D  E  F  G  H  I  J  K  L  M  N  O  P  Q  R  S  T  U  V  W  X  Y  Z
+	0  1  2  3  4  5  6  7  8  9  10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25
+
+	This means, in regards to our MESSAGE, "APPLE", we assign each letter, such that;
+
+	A  P  P  L  E
+	0  15 15 11 4
+
+	And to SHIFT-Cipher correctly, we simply... add our KEY value to each letter, and change out our MESSAGE'S letters, accordingly! So, thusly, we add '3' to "A"'s '0' to get "D"'s '3', '15' to "P"'s '15', to get "S"'s '18', and such so that;
+
+	A  P  P  L  E     ->     SHIFT 3     ->     D  S  S  O  H
+	0  15 15 11 4     ->     SHIFT 3     ->     3  18 18 14 7
+
+	And we've successfully ciphered our message!
+
+	To decode, we simply shift again, but in the opposite direction.
+
+----------------------------------------------------
+
+NOTES;
+	In any letter-scale, if we go 'over' the scale's limits ( i.e; attempt to add '3' to "X"'s '23' you'd get '26', which isn't on our scale ( 0 - 25 ) ); we simply loop ( '26' has an overflow of one, so we loop back to "A" ).
+
+	In OUR Application's function, we *aren't* limiting ourselves to an alphabetical-like scale. Instead, we're following the 'visual' characters ( including space ) of the ASCII chart. For those who don't know the chart that well, the ASCII chart, well, charts CHARACTERS ( such as alphabetical ones ( A - Z ), and ones such as '$', '[', and '@' ) to DECIMAL NUMBERS. And such so, we specifically instead of having a simpler scaling range between 0 and 25- we instead have a range between 32 and 126. Within that range, we have things such as special-characters, numbers, Upper AND lowercase ( English ) letters, and even the spacebutton's space!
+
+	In other notes- for absolute clarification- when we 'go in the opposite direction' to decode our encoded message, we MINUS our KEY, not ADD. Using our alphabetical-scale example again- if we wanted to DECODE, let's say, "DSSOH"'s "H" using our KEY, we would SUBTRACT our KEY from "H"'s '7' value- returning us to our "E"'s '4'. And so;
+
+	D  S  S  O  H     ->     SHIFT 3 back ->     A  P  P  L  E
+	3  18 18 14 7     ->     SHIFT 3 back ->     0  15 15 11 4
+
+----------------------------------------------------

@@ -1,0 +1,64 @@
+VIGENÈRE BEAUFORT;
+	The VIGENÈRE-BEAUFORT-Cipher is the BEAUFORT modification of the VIGENÈRE-Cipher. Just like the SHIFT-Cipher, it is relatively simple cipher- but this time, one that uses a WORD-BASED KEY/PASSWORD, instead of a NUMERICAL one, like in SHIFT-Cipher. Now, ciphers such as the VIGENÈRE-Cipher are old- and thusly, are more often than not, standardized in being taught or explained using in-person paper, and large-ish tables of alphabet grids. Since in comparison, we sadly don't have that much space, I *will* be explaining it a bit differently- don't worry, it's incredibly similar to the basic explanation- to the point this might be an unneeded warning.
+
+	Like any cipher, we have a MESSAGE, and A KEY- in VIGENÈRE-Cipher's case, both being LETTER-STRINGS ( or, 'lines' ). In the cipher itself, however- we assign a VALUE to each alphabetical-letter-character in both, and then, fit and assign our KEY to the size of our MESSAGE. Then, we modify our MESSAGE using our KEY's values- matching each character positionally. For example, let's use the MESSAGE "HELLO WORLD!", and the KEY "Hi!".
+
+	Firstly, we will assign a value to each letter using this chart- a chart were, we simply attach a number to each letter in the English alphabet, in order, starting form zero;
+
+	A  B  C  D  E  F  G  H  I  J  K  L  M  N  O  P  Q  R  S  T  U  V  W  X  Y  Z
+	0  1  2  3  4  5  6  7  8  9  10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25
+
+	Thusly, making our MESSAGE and KEY have the values per letter;
+
+	MESSAGE:				KEY:
+	H  E  L  L  O     W  O  R  L  D  !	H  I  !
+	7  4  11 11 14    22 14 17 11 3         7  8
+
+	You might notice- we didn't assign a value to our exclamation-marks- again, VIGENÈRE-Cipher doesn't deal with non-alphabetical characters. Regardless- we then FIT our KEY to our MESSAGE- since in our case, our KEY is shorter than our MESSAGE, we loop-repeat our KEY to match. If it was longer, we would instead cut the KEY short- so, watch out! Now; ignoring the exclamation marks;
+
+	MESSAGE:
+	H  E  L  L  O     W  O  R  L  D
+	7  4  11 11 14    22 14 17 11 3
+	KEY:
+	H  I  H  I  H     I  H  I  H  I
+	7  8  7  8  7     8  7  8  7  8
+
+	In VIGENÈRE, we would add each value positionally, and use those new numerical values to represent our modded MESSAGE. Taking care to LOOP any value above our alphabet chart's 25, and counting the overflow back over *from* "A"'s 0 ( "Z"'s '25' + 5 goes to "E"'s '4', not "F"'S '5' );
+
+	H  E  L  L  O     W  O  R  L  D  
+	7  4  11 11 14    22 14 17 11 3
+	7  8  7  8  7     8  7  8  7  8   +
+	---------------------------------
+	14 12 18 19 21    30 21 25 18 11 
+	---------------------------------
+	14 12 18 19 21    4  21 25 18 11  Deal with overflow
+	---------------------------------
+	O  M  S  T  V     E  V  Z  S  L   Result
+
+	Thusly encoding our MESSAGE!
+
+
+VIGENÈRE-BEAUFORT;
+	In *VIGENÈRE-BEAUFORT*, what we're *actually* handling, is different, however. It is incredibly similar, however, so, our explaination so far is still functional. In *VIGENÈRE-BEAUFORT*, we SUBTRACT our KEY's values, instead of ADD-- dealing with overflow the same way we did earlier- looping negatives from 25-down.
+
+	H  E  L  L  O     W  O  R  L  D  
+	7  4  11 11 14    22 14 17 11 3
+	7  8  7  8  7     8  7  8  7  8   -
+	--------------------------------- 
+	0  -4 4  3  7     14 7  9  4  -5
+	---------------------------------
+	0  22 4  3  7     14 7  9  4  21  Deal with overflow
+	---------------------------------
+	A  W  E  D  H     O  H  J  E  V   Result
+
+	Giving us our result!
+
+----------------------------------------------------
+
+NOTES;
+
+	In the VIGENÈRE-Cipher, we ONLY deal with our MESSAGE'S letters- so be careful when you encode a message with a lot of telling numbers, or punctuation marks, here with VIGENÈRE! They'll be carried over,, unmodified.
+
+	DECODING for both is the exact same process- but doing in the other direction, using the same key. A keen eye will notice- that means VIGENÈRE and VIGENÈRE-BEAUFORT, assuming you have the same key, functionally act as decoders for each other!
+
+----------------------------------------------------

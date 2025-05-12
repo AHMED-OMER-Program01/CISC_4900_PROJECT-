@@ -1,0 +1,78 @@
+namespace Saber
+{
+    using Org.BouncyCastle.Pqc.Crypto.Saber;
+    using Org.BouncyCastle.Security;
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            try {
+
+                 var method="firesaberkem128r3";
+              
+                if (args.Length >0) method=args[0];
+
+                var random = new SecureRandom();
+                var keyGenParameters = new SaberKeyGenerationParameters (random, SaberParameters.firesaberkem128r3);
+
+     if (method=="firesaberkem192r3") keyGenParameters = new SaberKeyGenerationParameters(random, SaberParameters.firesaberkem192r3);
+     else if (method=="firesaberkem256r3") keyGenParameters = new SaberKeyGenerationParameters(random, SaberParameters.firesaberkem256r3);
+     else if (method=="firesaberkem90sr3") keyGenParameters = new SaberKeyGenerationParameters(random, SaberParameters.firesaberkem90sr3);
+     else if (method=="lightsaberkem128r3") keyGenParameters = new SaberKeyGenerationParameters(random, SaberParameters.lightsaberkem128r3);
+     else if (method=="lightsaberkem192r3") keyGenParameters = new SaberKeyGenerationParameters(random, SaberParameters.lightsaberkem192r3);
+     else if (method=="lightsaberkem256r3") keyGenParameters = new SaberKeyGenerationParameters(random, SaberParameters.lightsaberkem256r3);
+     else if (method=="lightsaberkem256r3") keyGenParameters = new SaberKeyGenerationParameters(random, SaberParameters.lightsaberkem256r3);
+     else if (method=="lightsaberkem90sr3") keyGenParameters = new SaberKeyGenerationParameters(random, SaberParameters.lightsaberkem90sr3);
+     else if (method=="saberkem128r3") keyGenParameters = new SaberKeyGenerationParameters(random, SaberParameters.saberkem128r3);
+     else if (method=="saberkem192r3") keyGenParameters = new SaberKeyGenerationParameters(random, SaberParameters.saberkem192r3);
+     else if (method=="saberkem256r3") keyGenParameters = new SaberKeyGenerationParameters(random, SaberParameters.saberkem256r3);
+     else if (method=="saberkem90sr3") keyGenParameters = new SaberKeyGenerationParameters(random, SaberParameters.saberkem90sr3);
+
+
+                var SaberKeyPairGenerator = new SaberKeyPairGenerator();
+                SaberKeyPairGenerator.Init(keyGenParameters);
+
+
+                var aKeyPair = SaberKeyPairGenerator.GenerateKeyPair();
+
+
+                var aPublic = (SaberPublicKeyParameters)aKeyPair.Public;
+                var aPrivate = (SaberPrivateKeyParameters)aKeyPair.Private;
+          
+
+
+                var pubEncoded =aPublic.GetEncoded();
+                var privateEncoded = aPrivate.GetEncoded();
+
+              var bobSaberKemGenerator = new  SaberKemGenerator(random);
+                var encapsulatedSecret = bobSaberKemGenerator.GenerateEncapsulated(aPublic);
+                var bobSecret = encapsulatedSecret.GetSecret();
+
+                var cipherText = encapsulatedSecret.GetEncapsulation();
+
+               var aliceSaberKemExtractor = new SaberKemExtractor(aPrivate);
+                var aliceSecret = aliceSaberKemExtractor.ExtractSecret(cipherText);
+               
+
+                Console.WriteLine("Saber Engine:\t\t\t{0}",keyGenParameters.Parameters.Name);
+                 Console.WriteLine("Saber Key Size:\t\t\t{0}",keyGenParameters.Parameters.DefaultKeySize);
+                  Console.WriteLine("Saber L:\t\t\t{0}",keyGenParameters.Parameters.L);
+                Console.WriteLine("Private key length:\t\t{0} bytes",aPrivate.GetEncoded().Length);
+                Console.WriteLine("Public key length:\t\t{0} bytes",aPublic.GetEncoded().Length);
+                Console.WriteLine("Ciphertext length:\t\t{0} bytes",cipherText.Length);
+
+                Console.WriteLine("\nAlice private (first 50 bytes):\t{0}",Convert.ToHexString(aPrivate.GetEncoded())[..100]);
+                Console.WriteLine("Alice public (first 50 bytes):\t{0}",Convert.ToHexString(aPublic.GetEncoded())[..100]);
+                Console.WriteLine("\nCipher (first 50 bytes):\t{0}",Convert.ToHexString(cipherText)[..100]);
+                Console.WriteLine("\nBob secret:\t\t{0}",Convert.ToHexString(bobSecret));
+                Console.WriteLine("Alice secret:\t\t{0}",Convert.ToHexString(aliceSecret));
+
+
+            } catch (Exception e) {
+                Console.WriteLine("Error: {0}",e.Message);
+            }
+
+        }
+    }
+}

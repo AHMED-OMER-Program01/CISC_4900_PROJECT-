@@ -1,0 +1,61 @@
+namespace Bike
+{
+    using Org.BouncyCastle.Pqc.Crypto.Bike;
+    using Org.BouncyCastle.Security;
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            try {
+
+                var size="128";
+
+                if (args.Length >0) size=args[0];
+
+                var random = new SecureRandom();
+                var keyGenParameters = new   BikeKeyGenerationParameters(random, BikeParameters.bike128);
+
+                if (size=="192") keyGenParameters = new BikeKeyGenerationParameters(random, BikeParameters.bike192);
+                else if (size=="256") keyGenParameters = new BikeKeyGenerationParameters(random, BikeParameters.bike256);
+
+                var BikeKeyPairGenerator = new BikeKeyPairGenerator();
+                BikeKeyPairGenerator.Init(keyGenParameters);
+
+
+                var aKeyPair = BikeKeyPairGenerator.GenerateKeyPair();
+
+                var aPublic = (BikePublicKeyParameters)aKeyPair.Public;
+                var aPrivate = (BikePrivateKeyParameters)aKeyPair.Private;
+
+
+                var pubEncoded =aPublic.GetEncoded();
+                var privateEncoded = aPrivate.GetEncoded();
+
+                var bobBikeKemGenerator = new BikeKemGenerator(random);
+                var encapsulatedSecret = bobBikeKemGenerator.GenerateEncapsulated(aPublic);
+                var bobSecret = encapsulatedSecret.GetSecret();
+
+                var cipherText = encapsulatedSecret.GetEncapsulation();
+
+                var aliceKemExtractor = new BikeKemExtractor(aPrivate);
+                var aliceSecret = aliceKemExtractor.ExtractSecret(cipherText);
+
+                Console.WriteLine("Bike-{0}",size);
+                Console.WriteLine("Private key length:\t\t{0} bytes",aPrivate.GetEncoded().Length);
+                Console.WriteLine("Public key length:\t\t{0} bytes",aPublic.GetEncoded().Length);
+                Console.WriteLine("Ciphertext length:\t\t{0} bytes",cipherText.Length);
+
+                Console.WriteLine("\nAlice private (first 50 bytes):\t{0}",Convert.ToHexString(aPrivate.GetEncoded())[..100]);
+                Console.WriteLine("Alice public (first 50 bytes):\t{0}",Convert.ToHexString(aPublic.GetEncoded())[..100]);
+                Console.WriteLine("\nCipher (first 50 bytes):\t{0}",Convert.ToHexString(cipherText)[..100]);
+                Console.WriteLine("\nBob secret:\t\t{0}",Convert.ToHexString(bobSecret));
+                Console.WriteLine("Alice secret:\t\t{0}",Convert.ToHexString(aliceSecret));
+
+            } catch (Exception e) {
+                Console.WriteLine("Error: {0}",e.Message);
+            }
+
+        }
+    }
+}

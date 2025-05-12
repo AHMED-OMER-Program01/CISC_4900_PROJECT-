@@ -1,0 +1,79 @@
+namespace Picnic
+{
+    using Org.BouncyCastle.Pqc.Crypto.Picnic;
+    using Org.BouncyCastle.Security;
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            try {
+
+      
+                var msg="Hello";
+                 var method="picnic3l1";
+                if (args.Length >0) msg=args[0];
+                if (args.Length >1) method=args[1];
+
+                var random = new SecureRandom();
+                var keyGenParameters = new PicnicKeyGenerationParameters(random,PicnicParameters.picnic3l1);
+
+                if (method=="picnic3l1") keyGenParameters = new PicnicKeyGenerationParameters(random,PicnicParameters.picnic3l1);
+                 else if (method=="picnic3l3") keyGenParameters = new PicnicKeyGenerationParameters(random,PicnicParameters.picnic3l3);
+                else if (method=="picnic3l5") keyGenParameters = new PicnicKeyGenerationParameters(random,PicnicParameters.picnic3l5);
+                else if (method=="picnicl1fs") keyGenParameters = new PicnicKeyGenerationParameters(random,PicnicParameters.picnicl1fs);
+                else if (method=="picnicl1full") keyGenParameters = new PicnicKeyGenerationParameters(random,PicnicParameters.picnicl1full);
+                else if (method=="picnicl1ur") keyGenParameters = new PicnicKeyGenerationParameters(random,PicnicParameters.picnicl1ur);
+              
+                else if (method=="picnicl3fs") keyGenParameters = new PicnicKeyGenerationParameters(random,PicnicParameters.picnicl3fs);
+            
+                else if (method=="picnicl3full") keyGenParameters = new PicnicKeyGenerationParameters(random,PicnicParameters.picnicl3full);
+                else if (method=="picnicl3ur") keyGenParameters = new PicnicKeyGenerationParameters(random,PicnicParameters.picnicl3ur);
+                else if (method=="picnicl5fs") keyGenParameters = new PicnicKeyGenerationParameters(random,PicnicParameters.picnicl5fs);
+                else if (method=="picnicl5full") keyGenParameters = new PicnicKeyGenerationParameters(random,PicnicParameters.picnicl5full);
+                   else if (method=="picnicl5ur") keyGenParameters = new PicnicKeyGenerationParameters(random,PicnicParameters.picnicl5ur);
+                                           
+
+
+                var keyPairGen = new PicnicKeyPairGenerator();
+                keyPairGen.Init(keyGenParameters);
+                var keyPair = keyPairGen.GenerateKeyPair();
+
+                var pubKey = (PicnicPublicKeyParameters)keyPair.Public;
+                var privKey = (PicnicPrivateKeyParameters)keyPair.Private;
+
+                // Signing 
+
+                var aliceSign = new PicnicSigner();
+                aliceSign.Init(true, privKey);
+                var signature = aliceSign.GenerateSignature(System.Text.Encoding.UTF8.GetBytes(msg));
+
+
+                // verify signature
+                var bobVerify = new PicnicSigner();
+                bobVerify.Init(false, pubKey);
+           //     var rtn = aliceSign.VerifySignature(System.Text.Encoding.UTF8.GetBytes(msg), signature);
+
+
+                Console.WriteLine("Message:\t{0}",msg);
+
+                Console.WriteLine("Method:\t\t{0}",method);
+
+
+                Console.WriteLine("\nPublic key (length):\t{0} bytes",pubKey.GetEncoded().Length);
+                Console.WriteLine("Alice Public key :\t{0}",Convert.ToHexString(pubKey.GetEncoded()));
+                Console.WriteLine("\nPrivate key (length):\t{0} bytes",privKey.GetEncoded().Length);
+                Console.WriteLine("Alice Private key:\t{0}",Convert.ToHexString(privKey.GetEncoded()));
+
+                Console.WriteLine("\nSignature (length):\t{0} bytes",signature.Length);
+                Console.WriteLine("Signature (first 50 bytes):\t\t{0}",Convert.ToHexString(signature)[..100]);
+            //    Console.WriteLine("\nVerified:\t{0}",rtn);
+
+
+            } catch (Exception e) {
+                Console.WriteLine("Error: {0}",e.Message);
+            }
+
+        }
+    }
+}

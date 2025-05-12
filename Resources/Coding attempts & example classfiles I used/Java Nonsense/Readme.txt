@@ -1,0 +1,1 @@
+A LOT of this nonsense is from https://www.bouncycastle.org/, so, if you're reading this, go there and give them some love!

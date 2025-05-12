@@ -1,0 +1,283 @@
+Was started days earlier, but finished Feb 9th, 2025 ( cutting a bit close, there! )
+
+
+Title of project;
+	Functional & Educational QR-Algol encryptor application
+
+'Tagline';
+	"Decrypt your learning; understand encryption!"
+
+'Mission Statement';
+	"To educate on manners of encryption and decryption, in an accessible manner."
+
+'Vision Statement';
+	"To exemplify encryption on the educational level."
+
+
+---------------
+"State and elaborate who your end-user is. 
+	This is the person who would  be receiving the most 
+interaction and/or first-hand value from your project. You could 
+also consider this as the "customer profile" or "consumer profile".";;;;
+
+		Those who want to learn more about encryption, need an 
+	application that can grow easily to incorporate many types 
+	of encryption, need an application that encrypts using 
+	quantum-resistant algorithms, instead of average ones, and 
+	those who just want a simple rundown on how said encryption 
+	types work.
+---------------
+"State and elaborate on the problem-space involved in your project.
+	Provide specific details about something you are trying to 
+improve upon, re-imagine, and/or solve. This should be both deliberate 
+and detailed. Isolate and pinpoint just the targeted problem, 
+nothing more, nothing less. This narrows in your focus on what exactly 
+the problem is and excludes what the problem is not.";;;;;
+
+
+        Much like AI, quantum chips, and the likes, are variables expected to hit the techno-digital landscape like a nuke. Quantum chips, henceforth QC, are massive game-changers; and that's a problem for encryption. You see; QC already exist in governmental spaces, and can be expect to just about brute-force any old algorithm; these include the algorithms we use to encrypt important, personal data; such as your bank accounts, medical info, and personal files. Functionally; anyone with a QC wouldn't need to do the old-dance-and-trick to decrypt your data anymore; they could just brute-force solve the encryption; attempting billions of attempts where older chips would only budge a few.
+
+    So how do we fix this?
+
+    Well, in the cryptography space, the answer seemed to be; "build better algorithms!"
+
+    And they did; and still are, actively! You see, most modern encryption today could be overgeneralized as large-scaled, complex variable function equations; with some tweaks in methodology here and there. And that's an issue, since with enough time and attempts, you *could* break through; luckily, the amount of time previously suggested, with the tools we had in-before-years, would commonly estimate "longer than the heat-death of the universe" ( no joke ).
+
+    And that's why QCs are such an issue; they're so fast, they *could* decrypt brute-force, in months, not millennia! And so again ( sorry, I'm rambling a bit ), cryptographers decided to fundamentally increase the base complexity, and methods, of several new algorithims; such that so, even with the worst projections of QCs, they would take millennia more, just how we'd like it! These methods include things like Lattice-based-encryption, which, to *heavily* overgeneralize, instead of a math-equation, acts more like a 'one path only treasure hunt', and more specifcally, IBM's Kyber ( a IND-CCA2-secure KEM ( INDistinguishability under adaptive Chosen Ciphertext Attack, Key Encapsulation Mechanism ); already in use by places like Amazon, in their AWS Key Management Service, and straight up Cloudfare! ).
+
+   And so thusly; this is an ongoing, developing, and increasing subject. And I think more people should know, and learn about this!
+
+   And, uh; forgive me for not phrasing this whole thing that well, I'm a CS major, not a CW major ( ha! ), but; this is important to know, since many, many groups, domestic and foreign, *are* acknowledging this, and are already preparing. For instance; many groups are going with a "harvest now, decrypt later" approach; stealing and copying data that can't decrypt *now*, as they don't have access to QCs directly, yet, but still anticipate *attaining* some later; allowing them pure access to the outdated, yes, but massive amount, of stolen data they're collecting.
+
+    And the thing is; is more people's eyes were on this scene, yes, even more people would probably try similar tactics, but those who would already are! Instead, the more awareness on this subject available, the more careful people are likely to be even more with, well, their data!
+
+    And that's the point(ish) with this program. Awareness; as well as an example. Do I think I can, or will, single-handedly stop this issue?
+
+    Heck no! Not even in a million, trillion years! I'm well aware of my scope, and my skills; as the professors have said, this is a Bachelor's college project; not a master's defense; I don't think I'm going to create, or that my project even has the *capacity* to create, such an informative impact.
+
+   But I want to at least help mitigate it a bit; to at least have presented something out to the world on this, albeit overall not urgent, but still important, matter.
+
+    And besides, *I* want to do this project; it's not just about impact; it's about learning to do things I never did before, coding, or otherwise- I made my first install-wizard today! It's barebones, and I need to do more research to reach the standard I want, but it's real, and on my github!
+
+   And so... yeah; that's my goal with the end-user? Someone who doesn't know about... all this nonsense I spilled onto this textbox, and would like a, although small, working example; alongside an explanation, and like. The ability to use it as a regular encryptor, too!
+
+   I have the maturity to admit, it's mostly for my own amusement/learning pleasure, though ( lol )
+
+---------------
+
+"State and elaborate on the search-space involved in your project. *
+Provide specific details about the possible and/or neighboring solutions that could be suitable for the problem you are trying to solve. This should be both deliberate and detailed. Isolate and pinpoint just the possibilities, nothing more, nothing less. This narrows in your focus on where exactly to look and excludes where not to look in order to solve your problem.";;;
+
+
+
+    Other educationally vibrant examples would be; a data-science project, getting further into the nitty-gritty details I don't wish to, showcasing perhaps things like, projected solve-times for certain Quantum-Resistant algorithms, against non-quantum ones, against again several projections, and the real-scopes of currently revealed QCs, and their expected solve times? Or something, of/like that manner?
+
+   Another example would just straight up be a book, but this is a CS project, so it would probably be instead like, a simulation-explanation 3d walk-around game, or something like that? Maybe with a focus on exampling visuals ( such as with the lattice-based encryption schema ), with a narrator-voice-over? Or something?
+
+   Neither the above examples actually let you drag-drop, and actually encrypt files. Beyond that, I'm not the most data-detailed person; so a data-science project would be *too* frustrating, and I did a similar project to the second example back in like. Middle school, using Unity Engine, for a biology project. Even if I up-scaled that type of thing to my current college level ( and it *would* be a valid learning experience, to be fair ), I feel like my current project's form, although technically tougher... is more fulfilling? I'm learning newer things, and it's fun to boot ( Again, made my first install wizard today! Yahoo! ), so that's why I chose it to be in this manner!
+
+
+
+---------------
+
+
+
+
+"State and elaborate on the implementation-space, the key action steps. What are the exact or assumed implementation details of your solution? *
+This is the most complex prompt. 
+
+Let's say your solution-space was a program that swiftly builds conflict-free schedules for a sports team to have timely practices in order to (value-add, by the way) improve work/life balance and free up bandwidth that was manually spent on those logistics. 
+
+This prompt, for that case, would go into exact technical detail about how you will read in the data, parse through the data, store the data, write based on the data, and export the data. Include more detailed specifics than that, though. Will a "round-robin" algorithm be deployed? Will you be utilizing a "stochastic optimization" or a "coordinate descent" or a "gradient descent"? Will the steps be identical to something like "Sudoku" or "N-Queens?" and, if so, then how exactly? Be precise and accurate.
+
+Your answer to this prompt should signal to instructors that you will very clearly be able to achieve the solution and, based on your due diligence, that it's just a matter of time, trial, error, and critical thinking.";
+
+
+
+I've divided ( internally ) my project into three segments;
+    -The application & install wizard itself ( the easiest step-series )
+    -The encryption(s) themselves, their functionality/usability, and number ( a bulk of the coding & research will end up here )
+    -The educational aspect ( The writing segments, do I need image visuals, can I give a version of my app to my near tech illiterate family ( I'm saying such with love, but yeah ), and have them come out understanding what it's trying to say? Is the format weird? Can I do/build upon this more? Etc; this won't be the hardest technically, but definitely the most people-focused; I'm gonna have to brush up on how to implement digital-gogies ( Andra versus Heutagogy, blargh. ) and such )
+
+   In more detail; The application itself will be built using C++ Visual Studio 2022; and with the install-wizard confirmed to be working *already*, files will be stored locally, in the apps folder; the compatibility to Window's uninstall hook is something I literally just tested; so that isn't an issue anymore.
+
+   The program itself will allow you to select encryption types from a side-bar, of which selection includes; Home ( a general tab for any info I wish to place; will most likely put an explanation there ), Encryption type 1 ( a NON quantum-resistant algorithm; both as a comparison to the speed and complexity, but also as just a plain-old option option, for the end-user ), Encryption type 2 ( An actual QR algol; probably something initially easy to implement, like, as I believe I mentioned, vector/lattice schema ), and Encryption type 3 ( it was recommended to me to have at least one of the out/onset encryption types be a relatively unknown one; specifically from a White Page ( with credit given, of course ); and while against the nature of this specific question, I've deliberately held off on choosing one as of yet; as at this stage of project completion, I haven't even gotten the base-encryptor running; and getting *too* ahead of myself on details *specifically like that* will make me accidentally procrastinate *actually getting on and starting*; I know this might seem odd, but please trust I chose this specifically *because* I know, and try to anticipate myself ( lol )    )
+
+   Since I'm thinking of having 'encryptors' basically be a class in-of-themselves, pluggable into, for the side-bar's access, figuratively, if I manage to do it right, the application should be easily expandable.
+
+   Once an encryption type is selected, the 'main' window of the application will have three segments, as 'tabs'; on the top, the actual encryptor&decryptor functionality. Specifically; while I was initially thinking of drag+drop; file-path-selection is more likely. Either way, this 'tab' will stay open by default; below that,  however, will be a collapsible horizaontal tab with some data-specs. Mostly, based off of the most recent encryption; data fields like; last encrypted file's date encrypted,  time taken to encrypt, data size before and after, key-size, etc. Most likely, there will NOT be a long-time storage for these factoids. If each encryption-type has it's own folder within the code; this data will simply be stored on a .txt, and be overwritten as needed.
+
+   And finally, the third tab would be the hardest to formulate; not because it's hard to code ( god, no ), but rather, because it'll be the *explanation* and *educational-segment* tab. For this segment; I am of two minds; because despite the goal of this project, by nature, this will be one of the last segements possibly worked on in this project; so, depending on the time remaining, I'll either A; have the importing of a rich-text document, which would allow easier porting of images, or, a simple .txt read; which, should be easier overall to implement? It'll not 'fit the original vision' I had for the project; I *want* pictures, sue me, but also, I'm realistic enough to understand I can't really afford to daydream later, so I should make backup-plans *now*, yeah?
+
+   Of course, that's all just the a high-view, pseudo-coding side of implementation. realistically; I'm using Microsoft's official Window's app development resources, bumming round IBM and more's encryption data to see if there are easier Quantum-Resistant models to possibly implement, bugging my multi-media sibling for advice on how to properly convey data in better methods, probably testing it's effectiveness by putting it online, and downloading it on both public, and our campus's library's computers, to see if the install and application work fine in different environments, contacting the more tech-illiterate, but not hopeless members of my family to test and see if the generally get the gist, ask for help for further places I can test this sort of stuff from my professor(s), and probably bang my head against the wall eventually, when I get to the encryption-hell segment of this project.
+
+   But luckily, that's for later ( lmao ); right now, I'm just trying to make sure I have all the resources down pat, before I fully commit to a setup ( for instance; I waggled between C++ & C# a little, due to not realizing my visual studio wasn't even up to date! Spent an entire two hours in the campus library just... watching the update bar slowly crawl! It was maddening! ).
+
+---------------
+
+
+
+
+"State and elaborate on the implementation-space, its executable form. How exactly will the end-user be able to execute your solution? *
+This is important because sometimes a problem-solver can become fixated on an abstract problem to the extent that an abstract solution is successfully produced, but the end-user is somehow overlooked, left lost without clear instructions nor instructions at all. Additionally, this is important to distinguish because the very same solution could possibly be implemented in different forms. So, what are the concrete and specific implementation form of the solution? Will the implementation of your solution be something a user has to download from GitHub and run locally? Will it be a Google Chrome Extension the user has to download and enable because the problem is native to the browser? Will it be a CLI script that the user has to copy & paste along with an accompanying walkthrough and simplified documentation to follow?";
+
+
+Windows only; download the setup folder from Github, follow the instructions of the install wizard, then, select an encryption-type, then, boom! Either they use it, or they look *directly below* the encryption segment-tab, and read about how, when, and why, they should, or could, use the encryption type! Alongside some positing about the importance of QR algol if it IS a QR, of course.
+
+
+
+---------------
+
+"Very briefly explain the value-add of your project. *
+What exact value does the end-user receive through this project? Think thoughtfully about how your stakeholder(s) improves or has a different end-user experience now that your project exists. Communicate that.";
+
+An encryptor application high update feasibility ( I'm planning on making the framework easier to add new encryptions ), and an educational tool ( worst comes to worst, if this was an actual product, it'll be in a school's computer lab setup, somewhere ( lol ) ).
+
+
+
+---------------
+"Provide the name(s) of an organization or application that is most fit to be a direct competitor to your project or project idea.";
+...7zip?
+
+
+---------------
+"Provide the name(s) of an organization or application that is most fit to be an indirect competitor to your project or project idea.";
+Due to the nature of QR & QC... I'm. I'm actually ot joking when I say, the government? If they make a PSA, then like. Done's done, job's finished, y'know? And Unironically, they're the only ones who can... really, do that? Indirectly, I mean; next segment talks direct;
+
+
+---------------
+
+"Provide the name(s) of an organization or application that is most fit to be a replacement competitor to your project or project idea.";
+*unironically* only companies so large it doesn't even matter or impact my project; such as IBM, Microsoft, etc. If THEY came out with a professional, largescale version of my project; that'll be great, but, bot really... effect mine, due to it's nature?
+
+
+---------------
+List all of the programming languages that your project will involve. *
+Input "N/A" if this does not apply to your project.
+
+C++ with Windows-specfic libraries, and not much else.
+
+
+---------------
+List all of the frameworks that your project will involve. *
+Input "N/A" if this does not apply to your project.
+
+Visual Studio 2022, Microsoft & it's development guides & resources, and most likely more to come; I'm attempting to keep track as I go; learning project ftw!
+
+
+
+---------------
+
+
+
+List all of the tools/technologies that your project will involve. *
+Input "N/A" if this does not apply to your project.
+
+My laptop & other's Windows-OS COMPs for testing.
+
+
+---------------
+In terms of technical knowledge and technical ability, where do you stand with the technical requirements of your project?
+
+Overall, I am a beginner with the technical requirements, most of the technologies I will be using will be completely new to me, but I will learn how to use them as I go
+
+---------------
+
+Where will you store your data? *
+
+Github & In the user's app folder.
+
+
+---------------
+Which external APIs will you be using? *
+Input "N/A" if this does not apply to your project.
+
+
+Vis-Stdio 2022, Microsoft's... everything, so far.
+
+
+---------------
+
+Will you be using a code repository platform such as GitHub, Bitbucket, or GitLab? *
+If you plan on using a code repository platform for your core project that is not listed in the question, please input it in the last option.
+
+Yes, GitHub
+
+If you answered "yes" to the previous prompt, please include a link to it below. *
+Input "N/A" if this does not apply to your project.
+
+https://github.com/AHMED-OMER-Program01/CISC_4900_PROJECT-
+
+---------------
+
+Very briefly describe the most complex aspect, in your opinion, of the project. *
+
+Converting Post-Quantum Algorithms into code;  and unironically; writing the educational segment. A poet, I am not.
+
+---------------
+
+Very briefly describe a particular technical part of the project that you are most looking forward to contributing toward.
+
+Building the framework for the encryptors! I think I'll feel the most accomplished when I get that down; even if this project fails due to some unforeseen consequence down the line, as long as I can get to that stage of the project, and finish it; I'll still have an encryption app I built myself!
+
+---------------
+Explain your projected Proof of Concept (PoC). *
+We ask that you provide a clear, concise, and coherent response. Make sure every word is of-value. This information is of major significance to the instructors of the course. For those with internships, this refers to weeks 1-3.
+
+weeks 4 to 7; encryption conversion is estimated to be the largest step.
+
+---------------
+Explain your projected Prototype. *
+We ask that you provide a clear, concise, and coherent response. Make sure every word is of-value. This information is of major significance to the instructors of the course. For those with internships, this refers to weeks 5-8.
+
+weeks 6 to 9
+
+---------------
+Explain your projected Pilot. *
+We ask that you provide a clear, concise, and coherent response. Make sure every word is of-value. This information is of major significance to the instructors of the course. For those with internships, this refers to weeks 10-12.
+
+weeks 8 to 10
+
+---------------
+
+Explain your projected Minimum Viable Product (MVP). *
+We ask that you provide a clear, concise, and coherent response. Make sure every word is of-value. This information is of major significance to the instructors of the course. For those with internships, this refers to weeks 10-12.
+
+weeks 9 to 12
+
+
+
+
+
+
+
+
+
+
+---------------
+
+
+
+Explain your projected Minimum Delightful Product (MDP). *
+We ask that you provide a clear, concise, and coherent response. Make sure every word is of-value. This information is of major significance to the instructors of the course. For those with internships, this refers to weeks 13-16.
+
+Rest of weeks 11 or 12+
+
+
+
+---------------
+
+
+---------------
+
+
+
+
+
+
+---------------
+
+
+
+
+---------------

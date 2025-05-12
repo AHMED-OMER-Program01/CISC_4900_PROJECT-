@@ -1,0 +1,22 @@
+PICNIC;
+	Picnic, much like ML-DSA, is a Digital Signature checker. It was also scouted by NIST ( NATIONAL INSTITUE OF STANDARDIZED TECHNOLOGY ) during the PQC Competition- but ultimately lost to what would end up becoming ML-DSA, DILITHIUM-CRYSTALS; PICNIC fell out of the running in the finals, as far as I can see(?).
+
+	Like ML-DSA, PICNIC works under zero-knowledge proofs- meaning that *verification* on both ends is paramount. Unlike ML-DSA, it uses cipher-blocks ( which we'll get into more in AES ). Also unlike ML-DSA, which used FiatShamir; 
+
+	Unlike ML-DSA, where we also introduced a lot of concepts, PICNIC is much, much more relatively simple to explain ( though, still harder to explain on the more detailed level ). In basic function- we have two people- a verifier, and a prover. our verifier generates/creates a random symmetric key- a private key- and then, creates a plaintext BLOCK, and encrypts it, using her private key. This BLOCK then becomes their *public* key, for which they then 'cast out';
+
+	This is because unlike ML-DSA, which uses Fiat-Shamir; PICNIC assumes a MPC state- as-in; instead of  proving identities to each other by withholding knowledge and achieving tasks impossible to do *without* that knowledge, thusly proving such;;
+
+	MPC is more about *publicly* solving a set algorithm together, and by doing so, proving it's origin. See; since our 'verifier' created their own public key, especially using their private key, by not only showing up *with* the encrypted message, but also by solving it 'in front of' their counterpart- explaining the 'how', they prove the message came from *them*, specifically, and no one else.
+
+	Then, afterwards, if the 'verifier' wants to send a message, they generate a *new* private key, and create a new public key again using that, and their new message, and do so all over again.
+
+	The difference between this, and what's addressed in the ML-DSA signature checking, is both in functionality, the *attitude*, and *treatment*, of messaging. Basically- in a MPC system, where most messages are public freely, the insurance of identity comes from accomplishing a task *also* publicly. Meanwhile, in the Fiat-Shamir dynamic; being secretive and skeptical, until you're sure, is paramount.
+
+	An odd comparison to end this note on- it's the difference between proving your identity each time, for more often than not, smaller, but more frequent use- and establishing a hardlinned, strong connection, after lots of scrutiny. 
+----------------------------------------------------
+
+NOTES;
+	As stated earlier in ML-DSA, in this application, we only provide the public & private keys. Within the code, however, we DO provide verification of said keys in-as through signature-verification; check my code under Algol_01_Test.cs for a quick example set- it's fun to learn around!
+
+----------------------------------------------------

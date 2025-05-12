@@ -1,0 +1,57 @@
+AES;
+	AES ( Advanced Encryption Standard ) is a national Rijndael-family standard-Block-Cipher. It was  Standardized by NIST ( the National Institute of Standardized Technology ), back in 2000, as the winner of the AES competition, and has continued to act and enjoy being a cryptographic foundational work. It comes in AES-128, AES-192, and AES-256 varieties when regarding keys- with that last one being the one we're using in our application- since it's understood to count as a quantum resistant algorithm!
+
+	But to explain what AES is, properly, we must first explain what a block-cipher- the type of cipher it is, even is, first! 
+
+	A block cipher is a type of cipher for where items, such as our soon-to-be manipulated data, or our MESSAGE, is conjoined and fitted into a *grid-like BLOCK*. In AES's case- this is a 128 bit block- which if you don't know what that means, don't worry- but functionally, it is simply a large grid. If our data is too large *for* that block, we either set it aside into it's own block for individual processing and concatenating together later, compress it  so that it fits ( such as through conversion ), or cut it. If our data is too *small* to fill the block, but also isn't, in regards to AES specifically, a factor of 32 bit wise- we may fill it out with a series of predictable, but ultimately obfuscating data. In fact- we do this often, on purpose- adding in a *padding* of data into a block, to purposely complicate, and thusly further secure, the encryption.
+
+	After we fit our data properly *into* that block, we then can say we've formatted it, padding included or not, into a grid of *rows* and *columns*. From that grid, we take our key, the row positions, and the column positions, to manipulate our data systematically, encrypting it so such that our MESSAGE is encoded.
+
+	In AES's case, the reason we have AES-128, AES-192, and AES-256, as key-options, is because as *multiples* of 32 ( times, 4, 8, & 16, respectively ), we can then split-apart the KEY-block(s) made from a key of those sizes, and manipulate our MESSAGE-block in *multiple rounds*. These multiple steps, and rounds of changes in general to our MESSAGE block serve to abstractive and cipher our data- and add several layers complexity to our secret.
+
+	It's to the point that, when we began looking for algorithms that were Quantum resistant, AES-256, our application's default status for encryption, was found to count!
+
+	Speaking of AES further; since it's an algorithm, it obviously also follows a guideline-pipeline. Now- not *everything* about AES is fully public, *but*, in general, after we cajole our MESSAGE and KEY data into a block-
+
+	We manipulate our MESSAGE block using a NOT PUBLIC MANIPULATION that at least uses a portion of our KEY block data, and a XOR ( exclusive-or; based on a parameter/param, either one, or the other, but never both ). This is the state we reach before we start doing 'rounds', proper.  After such, at the beginning of a 'round', we shift around our last three *rows*, such that ( in this grossly oversimplified example );
+
+			A		B		C		
+		--------------------------------------------------------------------------------------------------
+	     0	|	%	|	%	|	%	|
+		--------------------------------------------------------------------------------------------------
+	     1	|	#	|	#	|	#	|
+		--------------------------------------------------------------------------------------------------
+	     2	|	&	|	&	|	&	|
+		--------------------------------------------------------------------------------------------------
+	     3	|	@	|	@	|	@	|
+		--------------------------------------------------------------------------------------------------
+
+				into::::	
+
+			 A		B		C	
+		--------------------------------------------------------------------------------------------------
+	     0	|	%	|	%	|	%	|
+	     	--------------------------------------------------------------------------------------------------
+	     3	|	@	|	@	|	@	|
+		--------------------------------------------------------------------------------------------------
+	     1	|	#	|	#	|	#	|
+		--------------------------------------------------------------------------------------------------
+	     2	|	&	|	&	|	&	|
+		--------------------------------------------------------------------------------------------------
+	
+	From then on, we combine, not shift around, the columns, mixing around the MESSAGE-BLOCK's data all by itself. Specifically, we use a linear transformation upon them- and to not get lost within the weeds, as it where- we use a column of data to produce a new column of data. Then, we manipulate the using a segment of our KEY the round; these last two steps being basically high-stakes matrix manipulation.
+
+	And then, after we produce this new, encoded block of data, we... encode it again- for around 9 to 13 more rounds!
+
+	With our *end* result block being our fully-encoded MESSAGE-block- of which we then translate back, in our case, into a regular string!
+
+	Overall, AES is a surprisingly simple algorithm, but obstinately, such has been to it's benefit- as it's method od stacking upon itself for security ensures it's complexity against more brute-force methods of cracking- such as what's feared with quantum chips, and computers!
+
+----------------------------------------------------
+
+NOTES;
+	As stated earlier, in this application, encryption using AES is hardlined to AES-256; this provides a file-content-encryption that's post-quantum/quantum-resistant, alongside in general, being a good excuse to include AES, in general. While ciphers such as SHIFT or VIGENÈRE, or VIGENÈRE-BEAUFORT, are *incredibly* too old to be used on the industrial level, instead of being as educational examples---
+
+	AES is a prime example of a file-content-encryptor that's in massive modern use, to this day. It's standardized for a reason- companies from like Apple, IBM, and Google, to governmental agencies, such as the *NSA*! It's a reliable tool for many software engineers- and helps keep people's data safe! 
+
+----------------------------------------------------

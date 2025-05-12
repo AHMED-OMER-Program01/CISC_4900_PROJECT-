@@ -1,0 +1,70 @@
+namespace Dilithium
+{
+    using Org.BouncyCastle.Pqc.Crypto.Crystals.Dilithium;
+    using Org.BouncyCastle.Security;
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            try {
+
+      
+                var msg="Hello";
+                 var method="Dilithium2";
+                if (args.Length >0) msg=args[0];
+                if (args.Length >1) method=args[1];
+
+                var random = new SecureRandom();
+                var keyGenParameters = new DilithiumKeyGenerationParameters(random, DilithiumParameters.Dilithium2);
+
+                if (method=="Dilithium3")  keyGenParameters = new DilithiumKeyGenerationParameters(random, DilithiumParameters.Dilithium3);
+                if (method=="Dilithium5") keyGenParameters = new DilithiumKeyGenerationParameters(random, DilithiumParameters.Dilithium5);
+            if (method=="Dilithium2Aes")  keyGenParameters = new DilithiumKeyGenerationParameters(random, DilithiumParameters.Dilithium2Aes);
+                if (method=="Dilithium3Aes")  keyGenParameters = new DilithiumKeyGenerationParameters(random, DilithiumParameters.Dilithium3Aes);
+                if (method=="Dilithium5Aes")  keyGenParameters = new DilithiumKeyGenerationParameters(random, DilithiumParameters.Dilithium5Aes);
+               
+
+
+                var keyPairGen = new DilithiumKeyPairGenerator();
+                keyPairGen.Init(keyGenParameters);
+                var keyPair = keyPairGen.GenerateKeyPair();
+
+                var pubKey = (DilithiumPublicKeyParameters)keyPair.Public;
+                var privKey = (DilithiumPrivateKeyParameters)keyPair.Private;
+
+                // Signing 
+
+                var aliceSign = new DilithiumSigner();
+                aliceSign.Init(true, privKey);
+                var signature = aliceSign.GenerateSignature(System.Text.Encoding.UTF8.GetBytes(msg));
+
+
+                // verify signature
+                var bobVerify = new DilithiumSigner();
+                bobVerify.Init(false, pubKey);
+                var rtn = bobVerify.VerifySignature(System.Text.Encoding.UTF8.GetBytes(msg), signature);
+
+
+
+                Console.WriteLine("Message:\t{0}",msg);
+                Console.WriteLine("Method:\t\t{0}",method);
+
+
+                Console.WriteLine("\nPublic key (length):\t{0} bytes",pubKey.GetEncoded().Length);
+                Console.WriteLine("Alice Public key (first 50 bytes)):\t{0}",Convert.ToHexString(pubKey.GetEncoded())[..100]);
+                Console.WriteLine("\nPrivate key (length):\t{0} bytes",privKey.GetEncoded().Length);
+                Console.WriteLine("Alice Private key (first 50 bytes)):\t{0}",Convert.ToHexString(privKey.GetEncoded())[..100]);
+
+                Console.WriteLine("\nSignature (length):\t{0} bytes",signature.Length);
+                Console.WriteLine("Signature (first 50 bytes):\t\t{0}",Convert.ToHexString(signature)[..100]);
+                Console.WriteLine("\nVerified:\t{0}",rtn);
+
+
+            } catch (Exception e) {
+                Console.WriteLine("Error: {0}",e.Message);
+            }
+
+        }
+    }
+}
